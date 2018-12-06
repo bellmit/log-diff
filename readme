@@ -1,0 +1,2 @@
+Log-diff is used to extract the "new" CAN messages between a "base" CAN traffic segment and an "action" CAN traffic segment.
+It might be used as a tool to reverse enginnering CAN messages of a certain ECUs in automotives.
