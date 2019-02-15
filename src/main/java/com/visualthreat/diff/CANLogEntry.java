@@ -1,4 +1,4 @@
-package com.company.diff;
+package com.visualthreat.diff;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

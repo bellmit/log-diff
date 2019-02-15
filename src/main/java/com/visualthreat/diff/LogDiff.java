@@ -1,4 +1,4 @@
-package com.visualthreat.tools;
+package com.visualthreat.diff;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -35,12 +35,12 @@ public class LogDiff {
 		Map<String, Map<String, Integer>> relationMap = buildMap(base);
 		Map<String, Integer> freq = countIdFreq(act);
 
-		
+
 		for (Entry<String, Integer> entry : freq.entrySet()) {
 			System.out.println(entry.getKey() + " : " + entry.getValue());
-			
+
 		}
-		
+
 		int[] frames = new int[act.size()];
 		for (int i = 0; i < act.size(); i++) {
 			String frame = act.get(i).get(0);
@@ -51,7 +51,7 @@ public class LogDiff {
 			}
 			for (int j = 1; j <= CHECK_RANGE; j++) {
 				// check for next few neighbors
-				if (i + j < act.size()) {	
+				if (i + j < act.size()) {
 					String nei = act.get(i + j).get(0);
 					if (relationMap.containsKey(nei) && relationMap.get(nei).containsKey(frame)) {
 						frames[i] += 1;
@@ -80,11 +80,11 @@ public class LogDiff {
 			for (int i = 0; i < act.size(); i++) {
 				String key = act.get(i).get(0) + "," + act.get(i).get(1);
 				if (frames[i] < 0 && freq.get(act.get(i).get(0)) < act.size() * INGNORE_FACTOR && !filter.contains(key)) {
-					printWriter.print((String.format("{\"timestamp\":%s,\"id\":%s,\"dlc\":%s,\"data\":[%s]}\n", 
+					printWriter.print((String.format("{\"timestamp\":%s,\"id\":%s,\"dlc\":%s,\"data\":[%s]}\n",
 							act.get(i).get(2), act.get(i).get(0),act.get(i).get(3),act.get(i).get(1))));
 					filter.add(key);
 				}
-			} 
+			}
 			printWriter.close();
 		} catch (Exception e) {
 			log.error("Error generate the result");
@@ -165,7 +165,7 @@ public class LogDiff {
 	 */
 	public static void main(String[] args) {
 
-		LogDiff.findDiff("test1.traffic", "test2.traffic", "output.traffic");
+		LogDiff.findDiff("kill_car.traffic", "PSCM.traffic", "output.traffic");
 
 	}
 }

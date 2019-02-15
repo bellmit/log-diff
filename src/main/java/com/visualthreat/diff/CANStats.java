@@ -1,4 +1,4 @@
-package com.company.diff;
+package com.visualthreat.diff;
 
 import lombok.Getter;
 

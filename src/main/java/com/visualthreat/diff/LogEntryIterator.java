@@ -1,4 +1,4 @@
-package com.company.diff;
+package com.visualthreat.diff;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.ObjectMapper;

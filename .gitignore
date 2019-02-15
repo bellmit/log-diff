@@ -1,0 +1,11 @@
+### Build
+target/
+out/
+pom.xml.versionsBackup
+
+### JetBrains
+.idea/
+*.iml
+
+### Mac OS
+.DS_Store
